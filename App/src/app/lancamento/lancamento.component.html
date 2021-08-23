@@ -1,0 +1,80 @@
+<form [formGroup]="registerForm" class="row g-3">
+
+  <div class="col-md-6">
+    <label for="inputMes" class="form-label">Mês</label>
+    <input type="text" class="form-control" formControlName="daT_MES">   
+    
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputAno" class="form-label">Ano</label>
+    <input type="text" class="form-control" id="inputAno" formControlName="daT_ANO" >  
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputState" class="form-label">Produto</label>
+    <select id="inputState" class="form-select" formControlName="coD_PRODUTO" >
+      <option [ngValue]="null" selected>--Selecione...</option>
+      <option *ngFor="let produt of produto" [ngValue]="produt.coD_PRODUTO">{{produt.desC_PRODUTO}}</option>
+    </select>
+  </div>
+  
+  <div class="col-md-6">
+    <label for="inputState" class="form-label">Cosif</label>
+    <select  class="form-select" formControlName="coD_COSIF" >
+      <option [ngValue]="null" selected>--Selecione...</option>
+      <option  *ngFor="let produt of produto_cosif" [ngValue]="produt.coD_COSIF">{{produt.coD_CLASSIFICACAO}}</option>
+    </select>
+  </div>
+
+  <div class="col-md-6">
+    <div>
+      <label for="inputValor" class="form-label">Valor</label>
+      <input formControlName="vaL_VALOR" type="text" class="form-control" id="inputValor">
+    </div>
+
+    <div>
+      <label for="inputDescricao" class="form-label">Descrição</label>
+      <textarea formControlName="deS_DESCRICAO" id="inputDescricao" class="form-control" name="inputDescricao" rows="4" cols="50"></textarea>
+    </div> 
+
+  </div>  
+  <div class="col-12" >    
+    <button type="submit" class="btn btn-primary" style="margin-left: 1px;" [disabled]="!registerForm.valid" (click)="salvar()">Incluir</button>
+  </div>  
+
+</form>
+
+
+
+<table class="table table-striped" style="margin-top: 10px;">
+  <thead class="thead-light">
+      <tr>            
+          <th>Mês</th>
+          <th>Ano</th>
+          <th>Código de Produto</th>
+          <th>Descrição Produto</th>          
+          <th>NR Lançamento</th>          
+          <th>Valor</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let movimentosManual of movimentoManual ">            
+          <td>{{movimentosManual.daT_MES}}</td>
+          <td>{{movimentosManual.daT_ANO}}</td>  
+          <td>PROD - {{movimentosManual.coD_PRODUTO}}</td>          
+          <td>{{movimentosManual.deS_DESCRICAO}}</td>   
+          <td>00{{movimentosManual.nuM_LANCAMENTO}}</td>        
+          <td>{{movimentosManual.vaL_VALOR}}</td>  
+      </tr>
+  </tbody>
+  <tfoot *ngIf="!movimentoManual">
+      <tr>
+          <td colspan="7" class="text-center">
+              <h4>
+                  Nenhum Movimento Manual encontrado!
+              </h4>
+          </td>
+      </tr>
+  </tfoot>
+</table>
