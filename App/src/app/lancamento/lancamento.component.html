@@ -2,8 +2,7 @@
 
   <div class="col-md-6">
     <label for="inputMes" class="form-label">Mês</label>
-    <input type="text" class="form-control" formControlName="daT_MES">   
-    
+    <input type="text" class="form-control" formControlName="daT_MES">     
   </div>
 
   <div class="col-md-6">
@@ -53,8 +52,9 @@
           <th>Mês</th>
           <th>Ano</th>
           <th>Código de Produto</th>
-          <th>Descrição Produto</th>          
+          <th>Descrição Produto</th>
           <th>NR Lançamento</th>          
+          <th>Descrição</th>
           <th>Valor</th>
       </tr>
   </thead>
@@ -62,9 +62,10 @@
       <tr *ngFor="let movimentosManual of movimentoManual ">            
           <td>{{movimentosManual.daT_MES}}</td>
           <td>{{movimentosManual.daT_ANO}}</td>  
-          <td>PROD - {{movimentosManual.coD_PRODUTO}}</td>          
-          <td>{{movimentosManual.deS_DESCRICAO}}</td>   
-          <td>00{{movimentosManual.nuM_LANCAMENTO}}</td>        
+          <td>{{movimentosManual.coD_PRODUTO}}</td>
+          <td>{{movimentosManual.desC_PRODUTO}}</td>                      
+          <td>{{movimentosManual.nuM_LANCAMENTO}}</td>
+          <td>{{movimentosManual.deS_DESCRICAO}}</td> 
           <td>{{movimentosManual.vaL_VALOR}}</td>  
       </tr>
   </tbody>

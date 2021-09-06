@@ -10,6 +10,8 @@ import { MovimentoManual } from '../entity/movimentoManual';
 })
 export class MovimentoManualService {
   baseUrl = 'https://localhost:44383/api/MovimentoManual';
+  // '/GetAllMovimentoManual'
+  // GetProCpsifManual
 
   constructor(public http: HttpClient) {}
 
@@ -22,7 +24,8 @@ export class MovimentoManualService {
   }
 
   getAllMovimentoManual(): Observable<MovimentoManual[]> {
-    return this.http.get<MovimentoManual[]>(this.baseUrl + '/GetAllMovimentoManual');
+    debugger
+    return this.http.get<MovimentoManual[]>(this.baseUrl + '/GetProCpsifManual');
   }
 
   // tslint:disable-next-line:typedef

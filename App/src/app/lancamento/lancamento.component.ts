@@ -81,6 +81,7 @@ export class LancamentoComponent implements OnInit {
   getMovimentoManual() {
     this.movimentoManualService.getAllMovimentoManual().subscribe(      
       (_movimentoManual: MovimentoManual[]) => {
+        debugger
         this.movimentoManual = _movimentoManual;
         console.log(this.produto);
       }
